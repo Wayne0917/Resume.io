@@ -81,7 +81,7 @@
         }
 
         .logo {
-            background-image: url("/images/letter-w.png");
+            background-image: url("./images/letter-w.png");
             background-repeat: no-repeat;
             font-family: var(--font-mono);
             font-size: 1.5rem;
@@ -90,10 +90,6 @@
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .logo h1{
-            
         }
     
 
