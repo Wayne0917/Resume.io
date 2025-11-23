@@ -90,6 +90,11 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            overflow: hidden;
+        }
+
+        .logo h1{
+            text-indent: 101%;
         }
     
 
@@ -311,7 +316,7 @@
         }
 
         .placeholder-face {
-            background-image: url("/images/470639044_8850171631684786_5282527169227206595_n.jpg");
+            background-image: url("./images/470639044_8850171631684786_5282527169227206595_n.jpg");
             background-position: center;
             background-size: cover;
             object-fit: cover;
@@ -528,11 +533,26 @@
             transition: all 0.3s ease;
         }
 
+
+        @media (max-width: 768px) {
+            .skill-card{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+            }
+            .skill-icon-wrapper{
+                margin: 0 auto;
+            }
+        }
+
         .skill-card:hover {
             border-color: var(--color-accent);
             transform: translateY(-4px);
         }
 
+
+        
         .skill-icon-wrapper {
             width: 48px; height: 48px;
             border-radius: 8px;
