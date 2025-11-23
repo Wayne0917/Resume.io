@@ -1,0 +1,694 @@
+:root {
+            /* 核心色調：深海藍與岩石灰 */
+            --color-bg: #0f172a;       /* Slate 900 */
+            --color-bg-light: #1e293b; /* Slate 800 */
+            --color-text-main: #cbd5e1;/* Slate 300 */
+            --color-text-muted: #94a3b8;/* Slate 400 */
+            --color-white: #ffffff;
+            
+            /* 品牌強調色：藍色系 */
+            --color-primary: #3b82f6;  /* Blue 500 */
+            --color-primary-dark: #1d4ed8; /* Blue 700 */
+            --color-accent: #60a5fa;   /* Blue 400 */
+
+            /* 字體設定 */
+            --font-sans: 'Noto Sans TC', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        /* 基礎重置 (Reset) */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth; /* 點擊連結平滑捲動 */
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 通用容器 (Container) - 限制最大寬度並置中 */
+        .container {
+            max-width: 1152px; /* 約等於 max-w-6xl */
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========================================
+           導航欄 (Navbar)
+           ======================================== 
+        */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 24px 0;
+            z-index: 1000;
+            transition: all 0.3s ease; /* 滾動時的過渡動畫 */
+        }
+
+        /* 當 JS 偵測到滾動時會加上這個 class */
+        .navbar.scrolled {
+            background-color: rgba(15, 23, 42, 0.95); /* 半透明背景 */
+            padding: 16px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8px); /* 毛玻璃效果 */
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            background-image: url("/images/letter-w.png");
+            background-repeat: no-repeat;
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo h1{
+            
+        }
+    
+
+        /* 電腦版選單 */
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #e2e8f0;
+            transition: all 0.6s ease;
+        }
+
+        .nav-links a:hover {
+            color: rgb(0, 140, 255);
+            transform: scale(1.1);
+            transform: translateY(-5px);
+        }
+
+        /* 手機版選單按鈕 (預設隱藏，小螢幕顯示) */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* 手機版選單覆蓋層 */
+        .mobile-menu {
+            display: none; /* 預設隱藏 */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 23, 42, 0.98);
+            border-top: 1px solid #1e293b;
+            padding: 16px 0;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        /* ========================================
+           主視覺 (Hero Section) - 雜誌風格
+           ======================================== 
+        */
+        .hero {
+            position: relative;
+            min-height: 85vh; /* 視窗高度的 85% */
+            display: flex;
+            align-items: center;
+            /* CSS 漸層背景 */
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #172554 100%);
+            overflow: hidden;
+            padding-top: 80px; /* 避開 navbar */
+            padding-bottom: 128px; /* 留空間給重疊卡片 */
+        }
+
+        /* 背景動畫光暈 */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.2;
+            animation: blob-bounce 7s infinite;
+        }
+        .blob-1 {
+            top: 0; right: 0;
+            width: 500px; height: 500px;
+            background-color: #2563eb;
+        }
+        .blob-2 {
+            bottom: 0; left: 0;
+            width: 500px; height: 500px;
+            background-color: #475569;
+            animation-delay: 2s;
+        }
+
+        @keyframes blob-bounce {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 7fr 5fr; /* 左 7 右 5 */
+            gap: 48px;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Hero 文字區塊 */
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            background-color: rgba(30, 58, 138, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #bfdbfe;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 4.5rem; /* 大標題 */
+            font-weight: 700;
+            color: var(--color-white);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            display: block;
+            font-style: italic;
+            color: #bfdbfe;
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        /* --- 修復部分：改用純色文字，避免背景框渲染問題 --- */
+        .typewriter-text {
+            /* 移除漸層背景，改用明亮的藍色 */
+            color: #93c5fd; /* 類似 Tailwind 的 blue-300 */
+            font-weight: 700;
+        }
+
+        .cursor {
+            color: var(--color-accent);
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-desc {
+            font-size: 1.125rem;
+            color: var(--color-text-muted);
+            max-width: 600px;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 0; /* 雜誌風格銳利角 */
+            border-top-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--color-white);
+            color: #0f172a;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover {
+            background-color: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #475569;
+            color: var(--color-white);
+        }
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Hero 圖片區塊 (拱門與遮罩) */
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .arch-image {
+            position: relative;
+            width: 320px;
+            height: 450px;
+            /* 關鍵：拱門形遮罩 CSS */
+            border-radius: 200px 200px 0 0;
+            background: linear-gradient(to bottom, #334155, #1e293b);
+            border: 6px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .placeholder-face {
+            background-image: url("/images/470639044_8850171631684786_5282527169227206595_n.jpg");
+            background-position: center;
+            background-size: cover;
+            object-fit: cover;
+            width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+        }
+
+        /* 漂浮小卡片 */
+        .float-card {
+            position: absolute;
+            bottom: -24px;
+            left: -48px;
+            background-color: rgba(30, 41, 59, 0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid #334155;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ========================================
+           重疊資訊卡 (Overlapping Section)
+           ======================================== 
+        */
+        .overlap-section {
+            position: relative;
+            z-index: 20;
+            margin-top: -96px; /* 負邊距讓它往上蓋 */
+            margin-bottom: 80px;
+        }
+
+        .info-card {
+            background-color: var(--color-white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-top: 4px solid var(--color-primary-dark);
+            
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 32px;
+            color: #0f172a; /* 深色文字 */
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        /* 分隔線：除了最後一個項目外，都加上右邊框 */
+        .info-item:not(:last-child) {
+            border-right: 1px solid #f1f5f9;
+            padding-right: 24px;
+        }
+
+        .info-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .icon-box {
+            background-color: #eff6ff;
+            padding: 8px;
+            border-radius: 8px;
+            color: var(--color-primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-title {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        .info-text {
+            font-size: 0.875rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           通用區塊樣式 (About, Skills, etc.)
+           ======================================== 
+        */
+        .section {
+            padding: 80px 0;
+        }
+
+        .bg-light {
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        .bg-dark {
+            background-color: #0f172a;
+            color: var(--color-text-main);
+            border-top: 1px solid #1e293b;
+        }
+
+        .section-title-wrapper {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* 標題下方的裝飾線 */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: rgba(59, 130, 246, 0.3);
+        }
+
+        /* ========================================
+           程式碼哲學 (Mock Editor)
+           ======================================== 
+        */
+        .editor-window {
+            background-color: #020617; /* 接近全黑 */
+            border-radius: 8px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            border: 1px solid #1e293b;
+            font-family: var(--font-mono);
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+
+        .editor-window:hover {
+            transform: scale(1.01);
+        }
+
+        .editor-header {
+            background-color: #0f172a;
+            padding: 8px 16px;
+            border-bottom: 1px solid #1e293b;
+            display: flex;
+            align-items: center;
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 6px;
+        }
+        .control-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background-color: #ef4444; }
+        .yellow { background-color: #eab308; }
+        .green { background-color: #22c55e; }
+
+        .file-name {
+            margin-left: 16px;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .editor-content {
+            padding: 24px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* 語法高亮顏色 */
+        .c-purple { color: #c084fc; }
+        .c-blue { color: #60a5fa; }
+        .c-yellow { color: #fde047; }
+        .c-gray { color: #64748b; font-style: italic; }
+
+        /* ========================================
+           技能卡片 (Skills)
+           ======================================== 
+        */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 欄 */
+            gap: 24px;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-4px);
+        }
+
+        .skill-icon-wrapper {
+            width: 48px; height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        /* 不同類別的顏色 */
+        .bg-blue-light { background-color: #dbeafe; color: #2563eb; }
+        .bg-purple-light { background-color: #f3e8ff; color: #9333ea; }
+        .bg-emerald-light { background-color: #d1fae5; color: #059669; }
+        .bg-amber-light { background-color: #fef3c7; color: #d97706; }
+
+        .skill-title { font-weight: 700; margin-bottom: 12px; font-size: 1.125rem; }
+        .skill-list li { font-size: 0.875rem; color: #475569; margin-bottom: 8px; }
+
+        /* ========================================
+           專案卡片 (Projects)
+           ======================================== 
+        */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .project-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--color-primary);
+        }
+
+        .card-body { padding: 24px; }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+        
+        .project-title { font-size: 1.25rem; font-weight: 700; color: white; }
+        
+        .project-desc {
+            font-size: 0.875rem;
+            color: #94a3b8;
+            margin-bottom: 16px;
+            min-height: 3.5em; /* 保持高度一致 */
+        }
+
+        .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tag {
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 4px;
+            color: #cbd5e1;
+        }
+
+        /* ========================================
+           職涯目標 (Goals)
+           ======================================== 
+        */
+        .goals-container {
+            max-width: 672px; /* max-w-2xl */
+            margin: 0 auto;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .timeline-marker {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .marker-circle {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-size: 0.875rem;
+        }
+        .marker-done { background-color: #22c55e; color: white; }
+        .marker-current { background-color: #2563eb; color: white; }
+        .marker-future { background-color: #cbd5e1; color: #475569; }
+        
+        .marker-line {
+            width: 2px;
+            flex-grow: 1;
+            background-color: #e2e8f0;
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            border-top: 1px solid #1e293b;
+            padding: 32px 0;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        /* ========================================
+           響應式設計 (Media Queries)
+           ======================================== 
+        */
+        @media (max-width: 1024px) {
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-title { font-size: 3.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            /* Navbar 改為漢堡選單 */
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            
+            /* Hero 轉為單欄 */
+            .hero-layout { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .hero-image-wrapper { justify-content: center; }
+            .float-card { left: -20px; } /* 調整小卡位置 */
+            .hero-title { font-size: 3rem; }
+            .hero-subtitle { font-size: 2rem; }
+            .hero-btns { justify-content: center; }
+
+            /* 重疊卡片轉為單欄 */
+            .info-card { grid-template-columns: 1fr; gap: 24px; }
+            .info-item:not(:last-child) { border-right: none; border-bottom: 1px solid #f1f5f9; padding-right: 0; padding-bottom: 24px; }
+
+            /* 其他 Grid 轉單欄 */
+            .skills-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+        .placeholder-face img{
+            max-width: 100%;
+            height: auto;
+        }

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wayne | 前端工程師履歷</title>
+    
+    <!-- 1. 字型設定：新增 Playfair Display 以達成參考圖的優雅風格 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/images/letter-w.png" type="image/x-icon">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/index.css">
+    <!-- 2. 圖標庫 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+</head>
+
+<body>
+    <!-- 導航欄 -->
+    <nav id="navbar" class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <h1>DEV_PROFILE</h1>
+            </a>
+            
+            <!-- 電腦版連結 -->
+            <div class="nav-links">
+                <a href="#about">關於我</a>
+                <a href="#philosophy">開發哲學</a>
+                <a href="#skills">技能與證照</a>
+                <a href="#projects">近期專案</a>
+                <a href="#goals">職涯目標</a>
+            </div>
+
+            <!-- 手機版按鈕 -->
+            <button id="menu-btn" class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+
+        <!-- 手機版選單 -->
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#about" class="mobile-link text-slate-300">關於我</a>
+            <a href="#philosophy" class="mobile-link text-slate-300">開發哲學</a>
+            <a href="#skills" class="mobile-link text-slate-300">技能與證照</a>
+            <a href="#projects" class="mobile-link text-slate-300">近期專案</a>
+            <a href="#goals" class="mobile-link text-slate-300">職涯目標</a>
+        </div>
+    </nav>
+
+    <!-- 主視覺 Hero Section -->
+    <header class="hero">
+        <!-- 背景動畫 Blob -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <div class="container hero-layout">
+            <!-- 左側文字 -->
+            <div class="hero-text">
+                <div class="hero-badge">
+                    Frontend Developer Portfolio
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="hero-subtitle">你好，我是</span>
+                    一名自學養成的 <br/>
+                    <!-- 打字機特效 -->
+                    <span id="typewriter-text" class="typewriter-text"></span>
+                    <span class="cursor">|</span>
+                </h1>
+                
+                <p class="hero-desc">
+                    從創業失敗中淬鍊出的成熟與責任感。<br/>
+                    非本科系出身，但我用<b>嚴謹的程式碼</b>與<b>穩定性</b>，構建可靠的前端體驗。
+                </p>
+
+                <div class="hero-btns">
+                    <a href="#goals" class="btn btn-primary">
+                        查看職涯規劃 <i data-lucide="arrow-right" width="16"></i>
+                    </a>
+                    <a href="#projects" class="btn btn-outline">
+                        近期實作練習
+                    </a>
+                </div>
+            </div>
+
+            <!-- 右側圖片 -->
+            <div class="hero-image-wrapper"    
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500">
+
+                <div class="arch-image">
+                    <div class="placeholder-face"></div>
+                </div>
+
+                <!-- 漂浮卡片 -->
+                <div class="float-card">
+                    <div style="background: rgba(59, 130, 246, 0.2); padding: 8px; border-radius: 50%;">
+                        <i data-lucide="code-2" color="#60a5fa"></i>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.75rem; color: #94a3b8;">專注技術</div>
+                        <div style="font-size: 0.875rem; font-weight: 700; color: white;">React & TypeScript</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 重疊資訊卡 -->
+    <section class="container overlap-section">
+        <div class="info-card">
+            <div class="info-item">
+                <div class="info-header">
+                    <div class="icon-box"><i data-lucide="trending-up"></i></div>
+                    <h3 class="info-title">過往經歷</h3>
+                </div>
+                <p class="info-text">曾創業經營飲品店，練就<b>抗壓性</b>與面對現實的成熟度。不再是只懂寫扣的工程師，而是懂營運的夥伴。</p>
+            </div>
+            <div class="info-item">
+                <div class="info-header">
+                    <div class="icon-box"><i data-lucide="check-circle-2"></i></div>
+                    <h3 class="info-title">自學特質</h3>
+                </div>
+                <p class="info-text">拒絕糊塗，堅持<b>看懂原理</b>再動手。習慣撰寫詳細註解，並導入嚴格模式 (Strict Mode) 開發。</p>
+            </div>
+            <div class="info-item">
+                <div class="info-header">
+                    <div class="icon-box"><i data-lucide="briefcase"></i></div>
+                    <h3 class="info-title">目標導向</h3>
+                </div>
+                <p class="info-text">鎖定<b>金融科技 (FinTech)</b> 領域。已取得金融科技力證照，正積極補強後端 (ASP.NET/Java) 概念。</p>
+                <a href="#about" style="color: #2563eb; font-weight: 700; font-size: 0.875rem; margin-top: auto; display: flex; align-items: center; gap: 4px;">
+                    更多關於我 <i data-lucide="arrow-right" width="14"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 關於我 Section -->
+    <section id="about" class="section bg-light">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">背景與成長</h2>
+            </div>
+            <div style="max-width: 768px; margin: 0 auto; text-align: center; color: #475569;">
+                <p style="margin-bottom: 1.5rem;">
+                    我是一位非本科系的轉職者，這意味著我所有的技能都是靠著強烈的動機與自律堆疊而來。高中時期因家庭因素協助家業，雖然影響了當時的課業，卻提早培養了我的責任感。
+                </p>
+                <p>我不怕從零開始，因為我知道只要有紀律，就能看見成果。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 程式碼哲學 Section -->
+    <section id="philosophy" class="section bg-dark">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title" style="color: white;">我的程式碼哲學</h2>
+                <p style="color: var(--color-text-muted); margin-top: 1rem;">我是自幹工程師路線，但我極度重視品質與可讀性。</p>
+            </div>
+
+            <div class="editor-window">
+                <div class="editor-header">
+                    <div class="window-controls">
+                        <div class="control-dot red"></div>
+                        <div class="control-dot yellow"></div>
+                        <div class="control-dot green"></div>
+                    </div>
+                    <span class="file-name">coding_habits.js</span>
+                </div>
+                <div class="editor-content">
+                    <pre><code><span class="c-purple">"use strict"</span>;
+
+<span class="c-gray">// 1. 堅持使用 const 與 let，絕不使用 var 以避免污染全域</span>
+<span class="c-purple">const</span> <span class="c-blue">developerMindset</span> = <span class="c-yellow">"Disciplined"</span>;
+<span class="c-purple">let</span> <span class="c-blue">currentSkill</span> = <span class="c-yellow">"React"</span>;
+
+<span class="c-gray">// 2. 習慣將複雜邏輯拆分為獨立模組</span>
+<span class="c-purple">async function</span> <span class="c-blue">fetchDataWithExplanation</span>() {
+  <span class="c-gray">// 3. 每個功能必定加上清楚註解，不讓接手的人困擾</span>
+  <span class="c-purple">try</span> {
+    <span class="c-purple">const</span> <span class="c-blue">response</span> = <span class="c-purple">await</span> api.get(<span class="c-yellow">"/knowledge"</span>);
+    <span class="c-purple">return</span> response;
+  } <span class="c-purple">catch</span> (<span class="c-blue">error</span>) {
+    <span class="c-gray">// 4. 面對錯誤：深入理解「為什麼」發生，而不只是複製貼上解法</span>
+    console.error(<span class="c-yellow">"Understanding the root cause..."</span>, error);
+  }
+}
+
+<span class="c-gray">// 5. 主動要求 Code Review</span>
+<span class="c-blue">self</span>.requestFeedback(<span class="c-yellow">"How can I make this architecture better?"</span>);</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能 Section -->
+    <section id="skills" class="section bg-light" >
+        <div class="container" data-aos="fade-up"
+    data-aos-anchor-placement="top-bottom" data-aos-duration="2000">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">專業技能與規劃</h2>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Card 1 -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrapper bg-blue-light">
+                        <i data-lucide="layers"></i>
+                    </div>
+                    <h3 class="skill-title">前端核心 (熟悉)</h3>
+                    <ul class="skill-list">
+                        <li>• HTML5 / CSS3</li>
+                        <li>• JavaScript (ES6+)</li>
+                        <li>• jQuery</li>
+                        <li>• Git & GitHub</li>
+                        <li>• RWD 響應式設計</li>
+                    </ul>
+                </div>
+                <!-- Card 2 -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrapper bg-purple-light">
+                        <i data-lucide="code"></i>
+                    </div>
+                    <h3 class="skill-title">進階學習中</h3>
+                    <ul class="skill-list">
+                        <li>• React (基礎扎實中)</li>
+                        <li>• TypeScript</li>
+                        <li>• Webpack / Async Modules</li>
+                        <li>• 前端架構 (OOP/MVC)</li>
+                        <li>• API 協作串接</li>
+                    </ul>
+                </div>
+                <!-- Card 3 -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrapper bg-emerald-light">
+                        <i data-lucide="cpu"></i>
+                    </div>
+                    <h3 class="skill-title">後端與未來</h3>
+                    <ul class="skill-list">
+                        <li>• React 專案</li>
+                        <li>• ASP.NET (規劃中)</li>
+                    </ul>
+                </div>
+                <!-- Card 4 -->
+                <div class="skill-card">
+                    <div class="skill-icon-wrapper bg-amber-light">
+                        <i data-lucide="award"></i>
+                    </div>
+                    <h3 class="skill-title">證照戰績</h3>
+                    <ul class="skill-list">
+                        <li>✔ 金融科技力</li>
+                        <li>✔ TQC+ 軟體開發知識</li>
+                        <li>✔ TQC HTML5</li>
+                        <li>✔ 電腦軟體應用乙級</li>                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 專案 Section -->
+    <section id="projects" class="section bg-dark">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <h2 class="section-title" style="color: white;">近期實作練習</h2>
+                    <p style="color: var(--color-text-muted);">不僅是寫完，更注重功能完整性與架構拆分</p>
+                </div>
+                <a href="https://github.com/Wayne0917" target="_blank" style="color: var(--color-accent); display: flex; align-items: center; gap: 8px;">
+                    <i data-lucide="github" width="18"></i> 前往 GitHub 查看原始碼
+                </a>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="project-title">🛋️ WoWoFurniture - <p>線上傢俱購物網站</p></h3>
+                            <i data-lucide="check-square" color="#64748b"></i>
+                        </div>
+                        <p class="project-desc">不只是新增刪除。實作了動態新增、刪除線效果、狀態切換、數據統計以及全選/反選邏輯。</p>
+                        <div class="tags">
+                            <span class="tag">JS (ES6)</span>
+                            <span class="tag">DOM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="project-title">🪑 WoWoFurniture Backstage - 後台管理系統</h3>
+                            <i data-lucide="layout" color="#64748b"></i>
+                        </div>
+                        <p class="project-desc">專注於 Props 傳遞、Children 運用與時間格式化組件，將大型元件拆解為小型可複用元件。</p>
+                        <div class="tags">
+                            <span class="tag" style="color: #bfdbfe; background: rgba(30, 58, 138, 0.5); border-color: rgba(59, 130, 246, 0.3);">React</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h3 class="project-title">Vue & Vite 除錯</h3>
+                            <i data-lucide="bug" color="#64748b"></i>
+                        </div>
+                        <p class="project-desc">深入理解打包工具。解決 ESLint 設定錯誤，分析 import 錯誤原因，理解原理而非盲目解 bug。</p>
+                        <div class="tags">
+                            <span class="tag">Vue</span>
+                            <span class="tag">Debug</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 職涯目標 Section -->
+    <section id="goals" class="section" style="background-color: white; color: #0f172a;">
+        <div class="container" style="text-align: center;">
+            <div style="background: #dbeafe; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                <i data-lucide="briefcase" width="32" height="32" color="#1d4ed8"></i>
+            </div>
+            <h2 class="section-title" style="margin-bottom: 1rem;">職涯目標與下一步</h2>
+            <p style="margin-bottom: 3rem; color: #475569;">
+                最終目標：成為前端工程師。<br>
+                用行動補強非本科的背景：
+            </p>
+
+            <div class="goals-container">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-circle marker-done">✓</div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div style="text-align: left;">
+                        <h4 style="font-weight: 700;">基礎穩固</h4>
+                        <p style="font-size: 0.875rem; color: #475569;">HTML5/CSS/JS, TQC+ 軟體開發知識, 金融科技力</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-circle marker-current">
+                            <i data-lucide="loader-2" width="16" class="animate-spin"></i>
+                        </div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div style="text-align: left;">
+                        <h4 style="font-weight: 700; color: var(--color-primary-dark);">目前階段：深化前端 & 證照</h4>
+                        <p style="font-size: 0.875rem; color: #475569;">React 實戰, TypeScript</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-circle marker-future">3</div>
+                    </div>
+                    <div style="text-align: left;">
+                        <h4 style="font-weight: 700;">未來展望</h4>
+                        <p style="font-size: 0.875rem; color: #475569;">ASP.NET / Java 學習</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <a href="mailto:your.email@example.com" style="background: #0f172a; color: white; padding: 16px 32px; border-radius: 8px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
+                    <i data-lucide="mail"></i>
+                    聯絡我
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 DEV_PROFILE. Built with Vanilla HTML, CSS, and JS.</p>
+        </div>
+    </footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<script src="/index.js"></script>
+</body>
+</html>
